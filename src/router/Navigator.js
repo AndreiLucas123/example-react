@@ -24,7 +24,7 @@ function determineRoute() {
 /** Função que muda a URL atual sem atualizar a página */
 export function pushRoute(path) {
   history.pushState({}, '', path);
-  _setRouteComponent(determineRoute());
+  _setRouteComponent(determineRoute);
 }
 
 export default function Navigator({ children }) {
