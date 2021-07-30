@@ -1,16 +1,13 @@
-import React from 'react';
-import { pushRoute } from '../router/Navigator';
+import React, { useContext } from 'react';
+import { routerContext } from '../providers-context';
 import './App.scss';
 
-const a = 3
-console.log('Arroz')
-
 export default function Home() {
-  const a = true;
-  console.log(a + ' aaa');
+  const { pushRoute } = useContext(routerContext);
+
   return (
     <div className='app'>
-      saaaaaaaaaaaa {a}
+      saaaaaaaaaaaa
       <button onClick={() => pushRoute('/asdf')}>Go to NotFound</button>
     </div>
   );

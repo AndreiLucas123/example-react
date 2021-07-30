@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { pushRoute } from '../router/Navigator';
+import { routerContext } from '../providers-context';
 
 function useClicks() {
   return useState(0);
@@ -7,18 +7,19 @@ function useClicks() {
 
 export default function About() {
   const [clicks, setClicks] = useClicks();
+  const { pushRoute } = useContext(routerContext);
 
   const containerRef = useRef();
 
   useEffect(() => {
-    console.log('Component montado', containerRef.current)
+    console.log('Component montado', containerRef.current);
 
     return () => {
-      console.log('Component desmontado')
-    }
-  }, [clicks])
+      console.log('Component desmontado');
+    };
+  }, [clicks]);
 
-  console.log('renderizado')
+  console.log('renderizado');
 
   const version = '1.4';
 

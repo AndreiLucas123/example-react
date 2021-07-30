@@ -1,5 +1,5 @@
-import React from 'react';
-import { pushRoute } from './Navigator';
+import React, { useContext } from 'react';
+import { routerContext } from '../providers-context';
 import styled from 'styled-components';
 
 const NotFoundContainer = styled.div`
@@ -17,6 +17,8 @@ const NotFoundContainer = styled.div`
 const NotFoundHomeButton = styled.button``;
 
 export default function NotFound() {
+  const { pushRoute } = useContext(routerContext);
+
   return (
     <NotFoundContainer>
       NotFound

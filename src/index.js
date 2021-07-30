@@ -1,12 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
 import App from './components/App';
-import Navigator from './router/Navigator';
+import RouterProvider from './router/RouterProvider';
 import './index.scss';
 
 render(
-  <Navigator>
+  <RouterProvider>
     <App></App>
-  </Navigator>,
+  </RouterProvider>,
   document.querySelector('#root')
 );

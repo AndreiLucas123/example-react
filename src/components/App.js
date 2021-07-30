@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { routerContext } from '../router/Navigator';
+import { routerContext } from '../providers-context';
 import './App.scss';
 
 export default function App() {

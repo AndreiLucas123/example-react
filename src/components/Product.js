@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-console.log(localStorage.getItem('arroz'))
-
 export default function Product() {
   const [color, setColor] = useState('red');
 
