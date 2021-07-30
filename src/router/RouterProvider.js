@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { routerContext } from '../providers-context';
 import routes from './routes';
 
@@ -18,6 +18,14 @@ export default function RouterProvider({ children }) {
       setRouteComponent(determineRoute);
     },
   };
+
+  // UseEffect para dar refresh com back button do browser
+  useEffect(() => {
+    const popstate = () => setRouteComponent(determineRoute);
+
+    window.addEventListener('popstate', popstate);
+    return () => window.removeEventListener('popstate', popstate);
+  }, []);
 
   return (
     <routerContext.Provider value={routeInfo}>
