@@ -14,17 +14,13 @@ const NotFoundContainer = styled.div`
   flex-direction: column;
 `;
 
-const NotFoundHomeButton = styled.button``;
-
 export default function NotFound() {
   const { pushRoute } = useContext(routerContext);
 
   return (
     <NotFoundContainer>
       NotFound
-      <NotFoundHomeButton onClick={() => pushRoute('/')}>
-        Go to Home
-      </NotFoundHomeButton>
+      <button onClick={() => pushRoute('/')}>Go to Home</button>
     </NotFoundContainer>
   );
 }
