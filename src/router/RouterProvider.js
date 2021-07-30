@@ -11,13 +11,6 @@ function determineRoute() {
 
 export default function RouterProvider({ children }) {
   const [routeComponent, setRouteComponent] = useState(determineRoute);
-  const routeInfo = {
-    Component: routeComponent,
-    pushRoute(path) {
-      history.pushState({}, '', path);
-      setRouteComponent(determineRoute);
-    },
-  };
 
   // UseEffect para dar refresh com back button do browser
   useEffect(() => {
@@ -28,7 +21,15 @@ export default function RouterProvider({ children }) {
   }, []);
 
   return (
-    <routerContext.Provider value={routeInfo}>
+    <routerContext.Provider
+      value={{
+        Component: routeComponent,
+        pushRoute(path) {
+          history.pushState({}, '', path);
+          setRouteComponent(determineRoute);
+        },
+      }}
+    >
       {children}
     </routerContext.Provider>
   );
